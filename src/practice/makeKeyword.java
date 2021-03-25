@@ -68,10 +68,13 @@ public class makeKeyword {
 				try {
 					Scanner scan = new Scanner(file);
 					while (scan.hasNextLine()) {
-						KeywordExtractor ke = new KeywordExtractor(); 
+						KeywordExtractor ke = new KeywordExtractor();
 						KeywordList kl = ke.extractKeyword(scan.nextLine(), true);
+						Keyword kwrd = null;
 						for (int i = 0; i < kl.size(); i++) {
-							Keyword kwrd = kl.get(i);
+							kwrd = kl.get(i);
+						}
+						for (int i = 0; i < kl.size(); i++) {
 							((Node) body).appendChild(
 									document.createTextNode(kwrd.getString() + " : " + kwrd.getCnt() + " # "));
 						}
